@@ -1,0 +1,36 @@
+<div class="details"  ng-controller="detailsController as vm">
+    <div class="details__container">
+        <h1 class="details__title">{{vm.info.header_title}}</h1>
+        <img class="details__image" ng-src="{{vm.info.banner_img}}" alt="banner_img">
+        <div class="details__description">
+            <p ng-bind-html="vm.info.description_html | trusted"></p>
+        </div>
+    </div>
+
+    <h2>Comentarios</h2>
+    <div class="comments" ng-repeat="item in vm.redditDetails | orderBy: '-data.num_comments'">
+        <div class="comments__container">
+            <div class="comments__header">
+                <div class="comments__header-title">
+                    <span>{{item.data.title}}</span>
+                </div>
+                <div class="comments__header-description" style="">
+                    <div class="comments__header-description--item">
+                        <span >Autor:</span>
+                        <span>{{item.data.author}}</span>
+                    </div><br>
+                    <div class="comments__header-description--item">
+                        <span>Comentarios: </span>
+                        <span>{{item.data.num_comments}}</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="comments__body">
+                <p ng-if="item.data.selftext_html" ng-bind-html="item.data.selftext_html | trusted"></p>
+            </div>
+
+        </div>
+    </div>
+</div>

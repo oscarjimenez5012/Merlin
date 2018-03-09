@@ -1,0 +1,39 @@
+<div class="content-page" ng-controller="ListRedditsController as vm">
+    <div class="catalog"  style="" ng-repeat="item in vm.items">
+        <div class="catalog__container">
+            <div class="catalog__header">
+                <img ng-src="{{ item.data.icon_img || 'http://www.matrixgenerics.com/site/assets/images/noimage.png'}}" alt="" class="catalog__header-image">
+            </div>
+            <div class="catalog__body">
+                <h4 class="catalog__title">{{item.data.display_name}}</h4>
+                <div class="catalog__description" ng-bind-html=" item.data.public_description_html  | trusted"></div>
+                <a style="text-decoration: none; " ng-click="vm.setRedditsDetails(item.data)" href="#details/r/{{item.data.display_name}}/" class="catalog__button">
+                    <span>Read More</span>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <div style="display: block; clear: both;"></div>
+    <!-- pager -->
+
+    <ul class="pagination" ng-if="vm.pager.pages.length">
+        <li ng-click="vm.setPage(1)">
+            <a>First</a>
+        </li>
+        <li ng-click="vm.setPage(vm.pager.currentPage - 1)">
+            <a >Previous</a>
+        </li>
+        <li ng-repeat="page in vm.pager.pages" ng-click="vm.setPage(page)">
+            <a>{{page}}</a>
+        </li>
+        <li ng-click="vm.setPage(vm.pager.currentPage + 1)">
+            <a>Next</a>
+        </li>
+        <li ng-click="vm.setPage(vm.pager.totalPages)">
+            <a>Last</a>
+        </li>
+    </ul>
+
+</div>

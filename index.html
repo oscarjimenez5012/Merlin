@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="merlin">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./assets/css/style.css">
+
+    </head>
+    <body>
+        <div class="body">
+
+            <header ng-include="'./views/header.html'"></header>
+            <nav ng-include="'./views/nav.html'"></nav>
+            <div style="display: block; clear: both;"></div>
+            <div class="container">
+                <aside ng-include="'./views/aside.html'"></aside>
+                <div ng-view></div>
+            </div>
+            <footer ng-include="'./views/footer.html'"></footer>
+
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.9/angular-sanitize.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+        <script src="./app/app.js"></script>
+        <script src="./app/app.config.js"></script>
+        <script src="./app/controllers/ListRedditsController.js"></script>
+        <script src="./app/controllers/DetailsRedditController.js"></script>
+        <script src="./app/factories/DataService.js"></script>
+        <script src="./app/factories/PagerService.js"></script>
+        <script src="./app/filters/Trusted.js"></script>
+    </body>
+</html>
